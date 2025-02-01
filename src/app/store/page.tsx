@@ -12,7 +12,7 @@ export default function About() {
   } as const
 
   return (
-    <div className="min-h-screen flex flex-col bg-orange-100">
+    <div className="min-h-screen flex flex-col bg-white">
 
       <Header />
       

@@ -5,7 +5,7 @@ import { projects } from "./utils/projects";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-orange-100 w-full">
+    <div className="min-h-screen flex flex-col bg-white w-full">
       <Header />
 
       <main className="container mx-auto px-4 flex-1 flex flex-col">

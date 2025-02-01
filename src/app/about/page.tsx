@@ -5,7 +5,7 @@ import Footer from "../components/Footer"
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-orange-100">
+    <div className="flex flex-col min-h-screen bg-white">
       <Header />
       
       <main className="flex-grow">
