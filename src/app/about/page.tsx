@@ -12,23 +12,29 @@ export default function AboutPage() {
         {/* Top Section with Three Columns */}
         <section className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2].map((_, i) => (
-              <div key={i} className="space-y-4">
-                <div className="bg-gray-400 aspect-square w-full"></div>
-                <p className="text-gray-700 text-sm">
+              <div className="space-y-4">
+                <div className="bg-gray-400 aspect-square rounded-lg md:w-5/6"></div>
+                <p className="text-gray-700 text-sm md:w-5/6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                   incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
                   gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
                 </p>
               </div>
-            ))}
+              <div className="space-y-4">
+                <div className="bg-gray-400 aspect-square rounded-lg md:w-5/6"></div>
+                <p className="text-gray-700 text-sm md:w-5/6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
+                  gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                </p>
+              </div>
             <div className="space-y-4">
               <Image
                 src=""
                 alt="Ilustração de pessoas interagindo"
                 width={400}
                 height={400}
-                className="w-full aspect-square object-contain bg-gray-400"
+                className="md:w-5/6 aspect-square rounded-lg object-contain bg-gray-400"
               />
             </div>
           </div>
