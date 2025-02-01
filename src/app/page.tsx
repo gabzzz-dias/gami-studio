@@ -19,7 +19,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="group block"
                 >
-                  <div className="bg-gray-200 aspect-video rounded-lg overflow-hidden relative group-hover:scale-110 transition-all duration-300">
+                  <div className="bg-gray-200 aspect-video rounded-lg overflow-hidden relative group-hover:scale-105 md:group-hover:scale-110 transition-all duration-300">
                     <img
                       src={project.image || "/placeholder-image.png"}
                       alt={project.title}
