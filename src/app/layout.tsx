@@ -1,5 +1,9 @@
 import './globals.css'
 import React from 'react'
+import { Gabarito } from "next/font/google"
+
+const gabarito = Gabarito({ subsets: ["latin"] })
+
 
 export default function RootLayout({
   children,
@@ -8,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${gabarito.className}`}>{children}</body>
     </html>
   )
 }
