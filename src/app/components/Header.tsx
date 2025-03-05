@@ -2,20 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Instagram, DribbbleIcon as Behance, Linkedin, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet"
 import { Button } from "./ui/button";
 import { BsBehance } from "react-icons/bs";
+import { LanguageContext } from "../utils/languageProvider";
 
 export default function Header() {
-  const [lang, setLang] = useState<"pt" | "en">("pt");
   const [open, setOpen] = useState(false)
-
-  const texts = {
-    pt: { home: "Home", about: "Sobre nós", contact: "Contato", store: "Conheça nossa loja!", talk: "VAMOS CONVERSAR?" },
-    en: { home: "Home", about: "About us", contact: "Contact", store: "Visit our store!", talk: "LET'S TALK?" },
-  };
+  const { dictionary, userLanguageChange, language } = useContext(LanguageContext)
 
   return (
     <header className="mx-auto px-6 md:px-20 py-6 flex md:flex-col md:items-center justify-between bg-white w-full min-w-screen">
@@ -27,35 +23,35 @@ export default function Header() {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild className="md:hidden">
             <Button variant="ghost" size="default">
-              <Menu className="h-8 w-8 text-orange-500" />
+              <Menu className="h-8 w-8 text-[#e78000]" />
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-full bg-black opacity-60 h-full flex items-center justify-center text-center">
             <nav className="flex flex-col space-y-8">
              
-                <Link href="/" className="text-xl font-medium transition-colors hover:text-orange-500">
-                  {texts[lang].home}
+                <Link href="/" className="text-xl font-medium transition-colors hover:text-[#e78000]">
+                  {dictionary.HOME}
                 </Link>
-                <Link href="/about" className="text-xl font-medium transition-colors hover:text-orange-500">
-                  {texts[lang].about}
+                <Link href="/about" className="text-xl font-medium transition-colors hover:text-[#e78000]">
+                  {dictionary.ABOUT}
                 </Link>
-                <Link href="/contact" className="text-xl font-medium transition-colors hover:text-orange-500">
-                  {texts[lang].contact}
+                <Link href="/contact" className="text-xl font-medium transition-colors hover:text-[#e78000]">
+                  {dictionary.CONTACT}
                 </Link>
                 <Link href="/store" className="text-xl font-medium transition-colors hover:text-green-700">
-                  {texts[lang].store}
+                  {dictionary.STORE}
                 </Link>
            
 
               <div className="flex flex-col items-center justify-center space-y-4">
 
                 <div className="flex flex-1 items-center space-x-2 pt-4 border-t text-lg">
-                  <button onClick={() => setLang("pt")} className={`hover:text-gray-600 ${lang === "pt" ? "font-bold" : ""}`}>
+                  <button onClick={() => userLanguageChange("pt")} className={`hover:text-gray-600 ${language === "pt" ? "font-bold" : ""}`}>
                     PT
                   </button>
                   <span>|</span>
-                  <button onClick={() => setLang("en")} className={`hover:text-gray-600 ${lang === "en" ? "font-bold" : ""}`}>
+                  <button onClick={() => userLanguageChange("en")} className={`hover:text-gray-600 ${language === "en" ? "font-bold" : ""}`}>
                     EN
                   </button>
                 </div>
@@ -80,7 +76,7 @@ export default function Header() {
 
         <div id="1" className="flex justify-center flex-1">
           <Link href="/" className="flex items-center space-x-2">
-            <Image src={'/assets/gami-logo.png'} alt="Gami Studio Logo" width={300} height={160} className="object-contain" />
+            <Image src={'/assets/new-logo.png'} alt="Gami Studio Logo" width={300} height={160} className="object-contain" />
           </Link>
         </div>
 
@@ -99,11 +95,11 @@ export default function Header() {
           </div>
 
           <div className="text-gray-400 space-x-2">
-            <button onClick={() => setLang("pt")} className={`hover:text-gray-600 ${lang === "pt" ? "font-bold" : ""}`}>
+            <button onClick={() => userLanguageChange("pt")} className={`hover:text-gray-600 ${language === "pt" ? "font-bold" : ""}`}>
               PT
             </button>
             <span>|</span>
-            <button onClick={() => setLang("en")} className={`hover:text-gray-600 ${lang === "en" ? "font-bold" : ""}`}>
+            <button onClick={() => userLanguageChange("en")} className={`hover:text-gray-600 ${language === "en" ? "font-bold" : ""}`}>
               EN
             </button>
           </div>
@@ -114,17 +110,17 @@ export default function Header() {
 
       <div id="3" className="flex items-center mt-4">
         <nav className="hidden md:flex space-x-24 text-lg">
-          <Link href="/" className="text-orange-500 hover:text-orange-600 hover:scale-102">
-            {texts[lang].home}
+          <Link href="/" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
+            {dictionary.HOME}
           </Link>
-          <Link href="/about" className="text-orange-500 hover:text-orange-600 hover:scale-102">
-            {texts[lang].about}
+          <Link href="/about" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
+            {dictionary.ABOUT}
           </Link>
-          <Link href="/contact" className="text-orange-500 hover:text-orange-600 hover:scale-102">
-            {texts[lang].contact}
+          <Link href="/contact" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
+            {dictionary.CONTACT}
           </Link>
           <Link href="/store" className="text-green-600 hover:text-green-700 hover:scale-102">
-            {texts[lang].store}
+            {dictionary.STORE}
           </Link>
         </nav>
       </div>

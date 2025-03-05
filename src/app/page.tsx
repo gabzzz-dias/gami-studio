@@ -1,14 +1,20 @@
 "use client";
+import Image from "next/image";
 import Header from "../app/components/Header";
 import Footer from "./components/Footer";
 import { projects } from "./utils/projects";
+import { useContext } from "react";
+import { LanguageContext } from "./utils/languageProvider";
+import Link from "next/link";
 
 export default function Home() {
+  const { dictionary, userLanguageChange, language } = useContext(LanguageContext)
+
   return (
     <div className="min-h-screen flex flex-col bg-white w-full">
       <Header />
 
-      <main className="container mx-auto px-4 flex-1 flex flex-col">
+      <main className="container mx-auto px-4 flex-1 flex flex-col justify-between">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-12">
           {projects.length > 0 ? (
             projects.map((project, i) => (
@@ -36,6 +42,18 @@ export default function Home() {
           ) : (
             <p>Carregando projetos...</p>
           )}
+        </div>
+
+        <div className="flex justify-center my-12">
+          <Link href="/contact">
+            <Image
+              src={language === "pt" ? '/assets/contact-btn-br.png' : '/assets/contact-btn-eng.png'} 
+              alt="Contato" 
+              width={180} 
+              height={50} 
+              className="object-contain"
+            />
+          </Link>
         </div>
       </main>
 
