@@ -34,6 +34,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 transition-all duration-300"></div>
                     <div className="absolute bottom-0 left-0 w-full text-white p-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <h3 className="text-sm font-semibold">{project.title}</h3>
+                      <span className="text-xs">{project.author}</span>
                     </div>
                   </div>
                 </a>
