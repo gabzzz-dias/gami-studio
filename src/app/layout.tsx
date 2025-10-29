@@ -6,9 +6,13 @@ import { Gabarito } from "next/font/google"
 import { LanguageProvider } from './utils/languageProvider'
 import { LoadingProvider } from './utils/loadingProvider'
 import { Toaster } from "react-hot-toast";
+import { cn } from '@/app/lib/utils';
 
-const gabarito = Gabarito({ subsets: ["latin"] })
-
+const gabarito = Gabarito({
+  subsets: ["latin"],
+  weight: ["400", "500", "800"],
+  variable: "--font-gabarito",
+})
 
 export default function RootLayout({
   children,
@@ -16,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +29,12 @@ export default function RootLayout({
       </head>
       <LanguageProvider>
         <LoadingProvider>
-          <body className={`${gabarito.className}`}>
+          <body
+            className={cn(
+              "min-h-screen bg-gami-beige text-gami-text font-sans antialiased",
+              gabarito.variable
+            )}
+          >
             <Toaster position='bottom-center' />
             {children}
           </body>

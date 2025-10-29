@@ -1,129 +1,183 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useContext, useState } from "react";
-import { Instagram, DribbbleIcon as Behance, Linkedin, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet"
-import { Button } from "./ui/button";
-import { BsBehance } from "react-icons/bs";
+import { Menu, X } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/app/components/ui/sheet";
+import { Button } from "@/app/components/ui/button";
 import { LanguageContext } from "../utils/languageProvider";
+import { cn } from "../lib/utils";
+import { BsBehance, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { usePathname } from "next/navigation";
+
+const NavLink = ({ href, children, isActive }: {
+    href: string,
+    children: React.ReactNode,
+    isActive: boolean
+}) => (
+    <Link
+        href={href}
+        className={cn(
+            "font-medium transition-colors",
+            isActive && "underline decoration-2 underline-offset-4",
+            href === "/contact"
+                ? "text-gami-green-light hover:text-gami-green-dark"
+                : "text-gami-text hover:text-gami-green-dark"
+        )}
+    >
+        {children}
+    </Link>
+);
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-  const { dictionary, userLanguageChange, language } = useContext(LanguageContext)
+    const [open, setOpen] = useState(false);
+    const { dictionary, userLanguageChange, language } = useContext(LanguageContext);
+    const pathname = usePathname();
 
-  return (
-    <header className="mx-auto px-6 md:px-20 py-6 flex md:flex-col md:items-center justify-between bg-white w-full min-w-screen">
+    const navLinks = [
+        { href: "/", label: dictionary.HOME.toLowerCase() },
+        { href: "/about", label: dictionary.ABOUT.toLowerCase() },
+        { href: "/projects", label: dictionary.PROJECTS.toLowerCase() },
+        { href: "/contact", label: dictionary.CONTACT.toLowerCase() },
+    ];
 
+    return (
+        <header className="w-full bg-gami-beige fixed top-0 left-0 right-0 z-50">
+            <nav className="mx-auto px-4 md:px-10 w-full py-4 flex items-center justify-between">
 
-      <div className="flex items-center justify-between w-full">
-
-
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="default">
-              <Menu className="h-8 w-8 text-[#e78000]" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-full bg-black opacity-60 h-full flex items-center justify-center text-center">
-            <nav className="flex flex-col space-y-8">
-             
-                <Link href="/" className="text-xl font-medium transition-colors hover:text-[#e78000]">
-                  {dictionary.HOME}
+                <Link href="/" className="text-3xl lg:text-4xl md:self-start font-extrabold text-gami-text">
+                    GamiStudio
                 </Link>
-                <Link href="/about" className="text-xl font-medium transition-colors hover:text-[#e78000]">
-                  {dictionary.ABOUT}
-                </Link>
-                <Link href="/contact" className="text-xl font-medium transition-colors hover:text-[#e78000]">
-                  {dictionary.CONTACT}
-                </Link>
-                <Link href="/store" className="text-xl font-medium transition-colors hover:text-green-700">
-                  {dictionary.STORE}
-                </Link>
-           
 
-              <div className="flex flex-col items-center justify-center space-y-4">
-
-                <div className="flex flex-1 items-center space-x-2 pt-4 border-t text-lg">
-                  <button onClick={() => userLanguageChange("pt")} className={`hover:text-gray-600 ${language === "pt" ? "font-bold" : ""}`}>
-                    PT
-                  </button>
-                  <span>|</span>
-                  <button onClick={() => userLanguageChange("en")} className={`hover:text-gray-600 ${language === "en" ? "font-bold" : ""}`}>
-                    EN
-                  </button>
+                <div className="hidden lg:flex font-medium text-lg items-center gap-6">
+                    <Link
+                        href="/"
+                        className={cn(
+                            "text-gami-text hover:text-gami-green-dark",
+                            pathname === "/" && "underline decoration-2 underline-offset-4"
+                        )}
+                    >
+                        {dictionary.HOME.toLowerCase()}
+                    </Link>
+                    <Link
+                        href="/about"
+                        className={cn(
+                            "text-gami-text hover:text-gami-green-dark",
+                            pathname === "/about" && "underline decoration-2 underline-offset-4"
+                        )}
+                    >
+                        {dictionary.ABOUT.toLowerCase()}
+                    </Link>
+                    <Link
+                        href="/projects"
+                        className={cn(
+                            "text-gami-text hover:text-gami-green-dark",
+                            pathname === "/projects" && "underline decoration-2 underline-offset-4"
+                        )}
+                    >
+                        {dictionary.PROJECTS.toLowerCase()}
+                    </Link>
+                    <Link
+                        href="/contact"
+                        className={cn(
+                            "text-gami-green-light hover:text-gami-green-dark",
+                            pathname === "/contact" && "underline decoration-2 underline-offset-4"
+                        )}
+                    >
+                        {dictionary.CONTACT.toLowerCase()}
+                    </Link>
                 </div>
 
-                <div className="flex space-x-4">
-                  <Link target="blank" href="https://www.instagram.com/oi.gami/" className="text-gray-500 hover:text-gray-600">
-                    <Instagram className="h-6 w-6" />
-                  </Link>
-                  <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gray-500 hover:text-gray-600">
-                    <BsBehance className="h-6 w-6" />
-                  </Link>
-                  <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gray-500 hover:text-gray-600">
-                    <Linkedin className="h-6 w-6" />
-                  </Link>
+                <div className="hidden lg:flex justify-around gap-10 font-medium text-gami-text">
+                    <div className="flex space-x-4">
+                        <Link target="blank" href="https://www.instagram.com/oi.gami/" className="text-gami-text hover:text-gami-green-dark">
+                            <BsInstagram className="h-5 w-5" />
+                        </Link>
+                        <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gami-text hover:text-gami-green-dark">
+                            <BsBehance className="h-5 w-5" />
+                        </Link>
+                        {/* <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gami-text hover:text-gami-green-dark">
+                            <BsLinkedin className="h-5 w-5" />
+                        </Link> */}
+                    </div>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => userLanguageChange("pt")}
+                            className={cn(language === "pt" ? "font-extrabold" : "hover:text-gami-green-dark")}
+                        >
+                            PT
+                        </button>
+                        <span>|</span>
+                        <button
+                            onClick={() => userLanguageChange("en")}
+                            className={cn(language === "en" ? "font-extrabold" : "hover:text-gami-green-dark")}
+                        >
+                            EN
+                        </button>
+                    </div>
                 </div>
-              </div>
 
+                <div className="lg:hidden">
+                    <Sheet open={open} onOpenChange={setOpen}>
+                        <SheetTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                                <Menu className="h-6 w-6 text-gami-text" />
+                                <span className="sr-only">Abrir menu</span>
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="right" className="w-full max-w-sm bg-gami-beige">
+                            <div className="flex flex-col h-full p-10">
+
+                                <nav className="flex flex-col gap-6 text-xl">
+
+                                    {navLinks.map((link) => (
+                                        <SheetClose asChild key={link.href}>
+                                            <NavLink
+                                                href={link.href}
+                                                isActive={pathname === link.href}
+                                            >
+                                                {link.label}
+                                            </NavLink>
+                                        </SheetClose>
+                                    ))}
+                                </nav>
+
+                                <div className="mt-auto flex flex-col justify-around items-center">
+
+                                    <div className="flex space-x-4">
+                                        <Link target="blank" href="https://www.instagram.com/oi.gami/" className="text-gami-text hover:text-gami-green-dark">
+                                            <BsInstagram className="h-6 w-6" />
+                                        </Link>
+                                        <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gami-text hover:text-gami-green-dark">
+                                            <BsBehance className="h-6 w-6" />
+                                        </Link>
+                                        {/* <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gray-500 hover:text-gray-600">
+                                            <BsLinkedin className="h-6 w-6" />
+                                        </Link> */}
+                                    </div>
+
+                                    <div className="mt-10 flex justify-center items-center gap-4 text-xl font-medium text-gami-text">
+                                        <button
+                                            onClick={() => userLanguageChange("pt")}
+                                            className={cn(language === "pt" ? "font-extrabold" : "hover:text-gami-green-dark")}
+                                        >
+                                            PT
+                                        </button>
+                                        <span className="text-gray-300">|</span>
+                                        <button
+                                            onClick={() => userLanguageChange("en")}
+                                            className={cn(language === "en" ? "font-extrabold" : "hover:ttext-gami-green-dark")}
+                                        >
+                                            EN
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </nav>
-          </SheetContent>
-        </Sheet>
-
-
-        <div id="1" className="flex justify-center flex-1">
-          <Link href="/" className="flex items-center space-x-2">
-            <Image src={'/assets/new-logo.png'} alt="Gami Studio Logo" width={300} height={160} className="object-contain" />
-          </Link>
-        </div>
-
-        <div id="2" className="hidden md:flex flex-col ml-auto items-center space-y-3">
-
-          <div className="flex space-x-4">
-            <Link target="blank" href="https://www.instagram.com/oi.gami/" className="text-gray-500 hover:text-gray-600">
-              <Instagram className="h-5 w-5" />
-            </Link>
-            <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gray-500 hover:text-gray-600">
-              <BsBehance className="h-5 w-5" />
-            </Link>
-            <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gray-500 hover:text-gray-600">
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </div>
-
-          <div className="text-gray-400 space-x-2">
-            <button onClick={() => userLanguageChange("pt")} className={`hover:text-gray-600 ${language === "pt" ? "font-bold" : ""}`}>
-              PT
-            </button>
-            <span>|</span>
-            <button onClick={() => userLanguageChange("en")} className={`hover:text-gray-600 ${language === "en" ? "font-bold" : ""}`}>
-              EN
-            </button>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div id="3" className="flex items-center mt-4">
-        <nav className="hidden md:flex space-x-24 text-lg">
-          <Link href="/" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
-            {dictionary.HOME}
-          </Link>
-          <Link href="/about" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
-            {dictionary.ABOUT}
-          </Link>
-          <Link href="/contact" className="text-[#e78000] hover:text-orange-600 hover:scale-102">
-            {dictionary.CONTACT}
-          </Link>
-          <Link href="/store" className="text-green-600 hover:text-green-700 hover:scale-102">
-            {dictionary.STORE}
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
+        </header>
+    );
 }

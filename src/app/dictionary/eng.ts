@@ -2,6 +2,7 @@ export default {
   HOME: "Home",
   ABOUT: "About",
   CONTACT: "Contact",
+  PROJECTS: "Projects",
   STORE: "Visit our store!",
   TEXT_GABI: "I'm Gabi, an illustrator, designer, and art director, passionate about creating visual narratives and exploring the countless ways to tell a story through charming characters, vibrant colors, and a playful sense of humor.",
   TEXT_MI: "I'm Milena, an illustrator and motion designer, fascinated by all things creative and the wonder of imagination. I love bringing vibrant and magical scenes to life, always with a touch of cuteness and an explosion of color.",

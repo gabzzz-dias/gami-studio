@@ -1,7 +1,8 @@
 export default {
-  HOME: "Home",
+  HOME: "início",
   ABOUT: "Sobre nós",
-  CONTACT: "Contato",
+  CONTACT: "Fale conosco!",
+  PROJECTS: "Projetos",
   STORE: "Conheça nossa loja!",
   TEXT_GABI: "Sou a Gabi, ilustradora, designer e diretora de arte. Apaixonada pela criação de narrativas visuais e pelas infinitas maneiras de contar uma história através de personagens carismáticos, cores e senso de humor.",
   TEXT_MI: "Sou a Milena, ilustradora e motion designer, fascinada por tudo que envolve criação e o despertar da imaginação. Amo dar vida a cenas vibrantes e mágicas, sempre com um toque de fofura e muita cor.",
