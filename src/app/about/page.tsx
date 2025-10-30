@@ -38,16 +38,15 @@ export default function AboutPage() {
 
                     <div className="flex justify-around w-full">
 
-                        <div className="flex w-full justify-between md:justify-start md:px-16">
+                        <div className="flex flex-col md:flex-row w-full justify-between">
 
-                            <div className="flex flex-col relative mx-3 md:mx-6 md:max-w-sm">
-                                <img src="/assets/mi-img.jpg" alt="Milena" className="w-24 md:w-32 h-24 md:h-32 object-cover rounded-full absolute -top-20 self-center lg:left-32" />
-                                <span className="text-gami-text mt-8 md:mt-20"><strong>Milena</strong> é ilustradora e vive para espalhar cores e encantamento pelo mundo, com um carinho extra pelos animais. Com <strong>três livros infantis ilustrados</strong> e uma colaboração editorial para a revista <strong>Superinteressante</strong>, seu trabalho transita com naturalidade do universo lúdico ao adulto.</span>
-                            </div>
+                            <img src="/assets/mi-img.jpg" alt="Milena" className="w-24 md:w-32 h-24 md:h-32 object-cover rounded-full absolute -top-12 self-center left-16 md:left-24 lg:left-32 xl:left-1/4" />
+                            <img src="/assets/gabi-photo.jpg" alt="Gabi" className="w-24 md:w-32 h-24 md:h-32 object-cover rounded-full absolute -top-12 self-center right-16 md:right-24 lg:right-32 xl:left-1/3" />
 
-                            <div className="flex flex-col relative mx-3 md:mx-6 md:max-w-sm">
-                                <img src="/assets/gabi-photo.jpg" alt="Gabi" className="w-24 md:w-32 h-24 md:h-32 object-cover rounded-full absolute -top-20 self-center lg:-left-32" />
-                                <span className="text-gami-text mt-8 md:mt-20"><strong>Gabi</strong> é ilustradora, designer e diretora de arte. Sua experiência inclui a criação dos universos gráficos das novelas infantis <strong>A Caverna Encantada</strong> e <strong>A Infância de Romeu e Julieta</strong>. Traz consigo uma camada extra de sensibilidade, afeto e diversão que vai além do design convencional.</span>
+
+                            <div className="flex flex-col md:flex-row mt-6 px-2 xl:mx-32">
+                                <span className="text-gami-text mt-10 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Milena</strong> é ilustradora e vive para espalhar cores e encantamento pelo mundo, com um carinho extra pelos animais. Com <strong>três livros infantis ilustrados</strong> e uma colaboração editorial para a revista <strong>Superinteressante</strong>, seu trabalho transita com naturalidade do universo lúdico ao adulto.</span>
+                                <span className="text-gami-text mt-6 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Gabi</strong> é ilustradora, designer e diretora de arte. Sua experiência inclui a criação dos universos gráficos das novelas infantis <strong>A Caverna Encantada</strong> e <strong>A Infância de Romeu e Julieta</strong>. Traz consigo uma camada extra de sensibilidade, afeto e diversão que vai além do design convencional.</span>
                             </div>
 
                         </div>
@@ -58,7 +57,7 @@ export default function AboutPage() {
 
                     </div>
 
-                    <div className="mt-12 mb-8 md:max-w-3xl md:self-center md:text-center md:px-6 md:mt-24 md:mb-16">
+                    <div className="mt-12 mb-8 md:max-w-3xl md:self-center md:text-center md:px-6 md:mt-24 md:mb-16 text-center">
                         <span className="text-gami-text text-xl md:text-2xl">Juntas, oferecemos um serviço que acompanha seu projeto do começo ao fim: <strong className="text-gami-pink-dark">da concepção criativa à arte final.</strong></span>
                     </div>
 
