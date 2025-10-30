@@ -1,4 +1,5 @@
 "use client";
+
 import Header from "../app/components/Header";
 import { homeProjects } from "./utils/projects";
 import { useContext } from "react";
@@ -13,17 +14,16 @@ import {
 } from "@/components/ui/accordion";
 import Footer from "./components/Footer";
 
-const services = [
-    { id: "1", title: "Ilustração editorial", description: "Criação de ilustrações para livros, revistas e outros materiais impressos." },
-    { id: "2", title: "Ilustração de livros", description: "Desenvolvimento de ilustrações para livros infantis e infanto-juvenis." },
-    { id: "3", title: "Produtos personalizados", description: "Criação de ilustrações para produtos como camisetas, canecas e outros itens." },
-    { id: "4", title: "Identidade visual ilustrada", description: "Desenvolvimento de identidades visuais para marcas e empresas." },
-    { id: "5", title: "Ilustração para marcas", description: "Criação de ilustrações para marcas e campanhas publicitárias." },
-    { id: "6", title: "Ilustração para presentes", description: "Criação de ilustrações para presentes personalizados." },
-];
-
 export default function Home() {
     const { dictionary } = useContext(LanguageContext);
+
+    const services = [
+        { id: "1", title: dictionary.SERVICES_EDITORIAL_TITLE, description: dictionary.SERVICES_EDITORIAL_TXT },
+        { id: "2", title: dictionary.SERVICES_CUSTOM_PRODUCTS_TITLE, description: dictionary.SERVICES_CUSTOM_PRODUCTS_TXT },
+        { id: "3", title: dictionary.SERVICES_BRAND_TITLE, description: dictionary.SERVICES_BRAND_TXT },
+        { id: "4", title: dictionary.SERVICES_PARTY_TITLE, description: dictionary.SERVICES_PARTY_TXT },
+        { id: "5", title: dictionary.SERVICES_CUSTOM_GIFTS_TITLE, description: dictionary.SERVICES_CUSTOM_GIFTS_TXT },
+    ];
 
     return (
         <div>
@@ -58,15 +58,15 @@ export default function Home() {
 
                     <div className="w-full max-w-3xl mt-4 text-center md:text-left px-6">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gami-text leading-tight max-w-[600px] md:mx-10">
-                            Ilustração editorial e produtos personalizados
+                            {dictionary.HOME_TITLE}
                         </h1>
 
                         <div className="md:flex mt-4">
                             <p className="text-lg md:text-xl text-gami-text mt-4 md:max-w-[200px] md:mx-10">
-                                Damos vida às suas ideias com humor, carinho e sensibilidade
+                                {dictionary.HOME_SUBTITLE}
                             </p>
                             <Button asChild size="lg" className="bg-gami-green-light text-white text-base hover:bg-gami-green-light/90 -rotate-6 mt-4 md:ml-6 min-w-40">
-                                <Link href="/about">SAIBA MAIS</Link>
+                                <Link href="/about">{dictionary.BTN_LEARN_MORE}</Link>
                             </Button>
                         </div>
                     </div>
@@ -115,7 +115,7 @@ export default function Home() {
 
                 <section className="container mx-auto px-4 py-10 max-w-3xl">
                     <h2 className="text-3xl font-extrabold text-center mb-10 text-gami-text">
-                        Nossos Serviços
+                        {dictionary.SERVICES_TITLE}
                     </h2>
 
                     <Accordion type="single" collapsible>
@@ -134,12 +134,11 @@ export default function Home() {
 
                 <section className="container mx-auto px-4 py-10 text-center mb-10">
                     <p className="text-lg max-w-xl mx-auto text-gami-text mb-6">
-                        Amou? Manda um oi com a sua ideia e retornaremos com
-                        os próximos passos ✨
+                        {dictionary.HOME_LOVE_IT}
                     </p>
 
                     <Button asChild size="lg" className="bg-gami-primary text-white text-base hover:bg-gami-primary/90 -rotate-6">
-                        <Link href="/contact">VAMOS CONVERSAR</Link>
+                        <Link href="/contact">{dictionary.BTN_LETS_TALK}</Link>
                     </Button>
                 </section>
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image"
 import Link from "next/link"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
@@ -9,8 +8,7 @@ import { LanguageContext } from "../utils/languageProvider"
 import { Button } from "../components/ui/button";
 
 export default function AboutPage() {
-    const { dictionary, language } = useContext(LanguageContext)
-
+    const { dictionary } = useContext(LanguageContext)
 
     return (
         <div className="flex flex-col min-h-screen bg-gami-beige w-full">
@@ -21,10 +19,10 @@ export default function AboutPage() {
                 <section className="flex flex-col md:flex-row justify-around content-center px-6 md:px-8 lg:px-12 mb-8">
 
                     <div className="flex flex-col justify-around md:justify-center md:items-start items-center text-center md:text-left max-w-md">
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gami-text mb-4">{dictionary.ABOUT}</h1>
-                        <p className="text-lg md:text-xl text-gami-text mb-4"><strong>Gami</strong> é um projeto colaborativo, um espaço onde transformamos nossa visão em arte.</p>
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gami-text mb-4">{dictionary.ABOUT_TITLE}</h1>
+                        <p className="text-lg md:text-xl text-gami-text mb-4"><strong>Gami</strong> {dictionary.ABOUT_SUBTITLE}</p>
                         <Button asChild size="lg" className="bg-gami-pink-dark text-white text-base hover:bg-gami-pink-dark/90 -rotate-6 max-w-56 self-center my-6">
-                            <Link href="/contact">VEM COM A GENTE?</Link>
+                            <Link href="/contact">{dictionary.BTN_JOIN_US}</Link>
                         </Button>
                     </div>
 
@@ -45,8 +43,8 @@ export default function AboutPage() {
 
 
                             <div className="flex flex-col md:flex-row mt-6 px-2 xl:mx-32">
-                                <span className="text-gami-text mt-10 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Milena</strong> é ilustradora e vive para espalhar cores e encantamento pelo mundo, com um carinho extra pelos animais. Com <strong>três livros infantis ilustrados</strong> e uma colaboração editorial para a revista <strong>Superinteressante</strong>, seu trabalho transita com naturalidade do universo lúdico ao adulto.</span>
-                                <span className="text-gami-text mt-6 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Gabi</strong> é ilustradora, designer e diretora de arte. Sua experiência inclui a criação dos universos gráficos das novelas infantis <strong>A Caverna Encantada</strong> e <strong>A Infância de Romeu e Julieta</strong>. Traz consigo uma camada extra de sensibilidade, afeto e diversão que vai além do design convencional.</span>
+                                <span className="text-gami-text mt-10 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Milena</strong> {dictionary.ABOUT_MI_TXT}</span>
+                                <span className="text-gami-text mt-6 md:mt-20 md:mx-6 xl:max-w-sm"><strong>Gabi</strong> {dictionary.ABOUT_GABI_TXT}</span>
                             </div>
 
                         </div>
@@ -58,7 +56,7 @@ export default function AboutPage() {
                     </div>
 
                     <div className="mt-12 mb-8 md:max-w-3xl md:self-center md:text-center md:px-6 md:mt-24 md:mb-16 text-center">
-                        <span className="text-gami-text text-xl md:text-2xl">Juntas, oferecemos um serviço que acompanha seu projeto do começo ao fim: <strong className="text-gami-pink-dark">da concepção criativa à arte final.</strong></span>
+                        <span className="text-gami-text text-xl md:text-2xl">{dictionary.ABOUT_BOTH_TXT} <strong className="text-gami-pink-dark">{dictionary.ABOUT_BOTH_TXT_BOLD}</strong></span>
                     </div>
 
                     <div className="hidden xl:block">
@@ -72,10 +70,10 @@ export default function AboutPage() {
                         <img src="/assets/store-img.png" alt="Ratinho" className="md:max-w-lg md:mx-6" />
                     </div>
                     <div className="flex flex-col justify-around items-center mt-8 md:mx-6">
-                        <span className="text-gami-text text-xl md:text-2xl lg:text-3xl"><strong>Curtiu a ideia?</strong></span>
-                        <span className="text-gami-text text-lg md:text-xl lg:text-2xl">Confira alguns dos nossos projetos!</span>
+                        <span className="text-gami-text text-xl md:text-2xl lg:text-3xl"><strong>{dictionary.ABOUT_LIKED_IDEA}</strong></span>
+                        <span className="text-gami-text text-lg md:text-xl lg:text-2xl">{dictionary.ABOUT_CHECK_PROJECTS}</span>
                         <Button asChild size="lg" className="bg-gami-green-dark text-white text-base hover:bg-gami-green-dark/90 -rotate-6 max-w-56 self-center my-4 md:mt-12">
-                            <Link href="/projects">SAIBA MAIS</Link>
+                            <Link href="/projects">{dictionary.BTN_LEARN_MORE}</Link>
                         </Button>
                     </div>
                 </section>

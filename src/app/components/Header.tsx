@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useContext, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/app/components/ui/sheet";
 import { Button } from "@/app/components/ui/button";
 import { LanguageContext } from "../utils/languageProvider";
 import { cn } from "../lib/utils";
-import { BsBehance, BsInstagram, BsLinkedin } from "react-icons/bs";
+import { BsBehance, BsInstagram } from "react-icons/bs";
 import { usePathname } from "next/navigation";
 
 const NavLink = ({ href, children, isActive }: {
@@ -96,9 +96,6 @@ export default function Header() {
                         <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gami-text hover:text-gami-green-dark">
                             <BsBehance className="h-5 w-5" />
                         </Link>
-                        {/* <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gami-text hover:text-gami-green-dark">
-                            <BsLinkedin className="h-5 w-5" />
-                        </Link> */}
                     </div>
                     <div className="flex gap-2">
                         <button
@@ -151,9 +148,6 @@ export default function Header() {
                                         <Link target="blank" href="https://www.behance.net/oigamistudio" className="text-gami-text hover:text-gami-green-dark">
                                             <BsBehance className="h-6 w-6" />
                                         </Link>
-                                        {/* <Link target="blank" href="https://www.linkedin.com/in/gabriela-mello-arte/" className="text-gray-500 hover:text-gray-600">
-                                            <BsLinkedin className="h-6 w-6" />
-                                        </Link> */}
                                     </div>
 
                                     <div className="mt-10 flex justify-center items-center gap-4 text-xl font-medium text-gami-text">

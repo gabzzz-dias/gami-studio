@@ -7,14 +7,12 @@ import { Textarea } from "../components/ui/textarea"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { LanguageContext } from "../utils/languageProvider"
-import { Button } from "../components/ui/button"
 import { LoadingOverlay } from "../components/loadingOverlay"
 import { useLoading } from "../utils/loadingProvider"
 import { toast } from 'react-hot-toast';
-import { Link } from "lucide-react"
 
 export default function ContactPage() {
-    const { dictionary, language } = useContext(LanguageContext)
+    const { dictionary } = useContext(LanguageContext)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const { startLoading, stopLoading } = useLoading()
 
@@ -37,8 +35,6 @@ export default function ContactPage() {
 
         const apiEndpoint = '/api/email';
 
-        console.log(data, "dataaaaaa");
-
         fetch(apiEndpoint, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -47,17 +43,17 @@ export default function ContactPage() {
             .then((response) => {
                 if (response.error) {
                     stopLoading("contact")
-                    toast.error(dictionary.ERROR);
+                    toast.error(dictionary.CONTACT_ERROR);
                     return;
                 }
                 stopLoading("contact")
-                toast.success(dictionary.SUCCESS);
+                toast.success(dictionary.CONTACT_SUCCESS);
                 return;
             })
             .catch((err) => {
                 console.error(err);
                 stopLoading("contact")
-                toast.error(dictionary.ERROR);
+                toast.error(dictionary.CONTACT_ERROR);
                 return;
             });
     }
@@ -70,26 +66,26 @@ export default function ContactPage() {
                 <div className="flex mx-auto px-4 py-12 justify-center items-center">
                     <div className="flex flex-col xl:flex-row gap-12 items-center">
                         <div>
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gami-text">{dictionary.LETS_TALK}</h1>
-                            <p className="text-gami-text text-lg md:text-xl mb-8">Mande um oi com a sua ideia e retornaremos com os próximos passos!</p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-gami-text">{dictionary.CONTACT_TITLE}</h1>
+                            <p className="text-gami-text text-lg md:text-xl mb-8">{dictionary.CONTACT_SUBTITLE}</p>
 
 
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="rounded-md">
                                     <Input
-                                        placeholder={dictionary.NAME}
+                                        placeholder={dictionary.CONTACT_NAME}
                                         required
                                         className="border-gami-text focus:border-gami-text/90 rounded-md bg-white"
                                     />
                                 </div>
 
                                 <div className="space-y-4">
-                                    <Input type="email" placeholder={dictionary.EMAIL} required className="border-gami-text focus:border-gami-text/90 rounded-md bg-white" />
+                                    <Input type="email" placeholder={dictionary.CONTACT_EMAIL} required className="border-gami-text focus:border-gami-text/90 rounded-md bg-white" />
                                 </div>
 
                                 <div>
                                     <Textarea
-                                        placeholder={dictionary.MESSAGE}
+                                        placeholder={dictionary.CONTACT_MESSAGE}
                                         required
                                         className="min-h-[200px] border-gami-text focus:border-gami-text/90 text-gray-600 rounded-md bg-white"
                                     />
@@ -105,7 +101,7 @@ export default function ContactPage() {
                                         type="submit"
                                         disabled={isSubmitting}
                                     >
-                                        <span>ENVIAR</span>
+                                        <span>{dictionary.BTN_SUBMIT}</span>
                                     </button>
                                 </div>
                             </form>
