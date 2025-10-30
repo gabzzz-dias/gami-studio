@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-gami-primary text-white py-4">
+        <footer className="bg-gami-green-dark text-white py-4 w-full">
             <div className="container mx-auto px-4 text-center text-sm">
                 ©Gami Studio 2025 | Powered by{" "}
                 <Link

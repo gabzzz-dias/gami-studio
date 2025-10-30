@@ -16,13 +16,13 @@ export default function AboutPage() {
         <div className="flex flex-col min-h-screen bg-gami-beige w-full">
             <Header />
 
-            <main className="flex flex-col pt-24 pb-16 w-full">
+            <main className="flex flex-1 flex-col pt-24 pb-16 w-full">
 
                 <section className="flex flex-col md:flex-row justify-around content-center px-6 md:px-8 lg:px-12 mb-8">
 
                     <div className="flex flex-col justify-around md:justify-center md:items-start items-center text-center md:text-left max-w-md">
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gami-text mb-4">{dictionary.ABOUT}</h1>
-                        <p className="text-lg md:text-xl lg:text-2xl text-gami-text mb-4"><strong>Gami</strong> é um projeto colaborativo, um espaço onde transformamos nossa visão em arte.</p>
+                        <p className="text-lg md:text-xl text-gami-text mb-4"><strong>Gami</strong> é um projeto colaborativo, um espaço onde transformamos nossa visão em arte.</p>
                         <Button asChild size="lg" className="bg-gami-pink-dark text-white text-base hover:bg-gami-pink-dark/90 -rotate-6 max-w-56 self-center my-6">
                             <Link href="/contact">VEM COM A GENTE?</Link>
                         </Button>

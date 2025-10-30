@@ -29,7 +29,7 @@ export default function Home() {
         <div>
             <Header />
 
-            <main className="flex flex-col w-full">
+            <main className="flex flex-1 flex-col w-full">
 
                 <section className="relative flex flex-col items-center pt-20 lg:pt-10 pb-10 overflow-hidden">
 
@@ -57,13 +57,13 @@ export default function Home() {
                     />
 
                     <div className="w-full max-w-3xl mt-4 text-center md:text-left px-6">
-                        <h1 className="text-3xl md:text-5xl font-extrabold text-gami-text leading-tight max-w-[600px] md:mx-10">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gami-text leading-tight max-w-[600px] md:mx-10">
                             Ilustração editorial e produtos personalizados
                         </h1>
 
                         <div className="md:flex mt-4">
-                            <p className="text-lg text-gami-text mt-4 md:max-w-[200px] md:mx-10">
-                                damos vida à suas ideias com humor, carinho e sensibilidade
+                            <p className="text-lg md:text-xl text-gami-text mt-4 md:max-w-[200px] md:mx-10">
+                                Damos vida às suas ideias com humor, carinho e sensibilidade
                             </p>
                             <Button asChild size="lg" className="bg-gami-green-light text-white text-base hover:bg-gami-green-light/90 -rotate-6 mt-4 md:ml-6 min-w-40">
                                 <Link href="/about">SAIBA MAIS</Link>

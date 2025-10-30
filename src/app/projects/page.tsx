@@ -16,10 +16,10 @@ export default function ProjectsPage() {
         <div className="flex flex-col min-h-screen bg-gami-beige w-full h-full">
             <Header />
 
-            <main className="flex flex-col pt-28 pb-16 w-full">
+            <main className="flex flex-1 flex-col pt-28 pb-16 w-full">
 
                 <section className="flex flex-col justify-center items-center mb-6 px-8 md:px-12 lg:px-16 text-center">
-                    <h1 className="text-gami-text text-3xl md:text-5xl font-bold">Nossos Projetos</h1>
+                    <h1 className="text-gami-text text-3xl md:text-4xl lg:text-5xl font-bold">Nossos Projetos</h1>
                     <p className="text-gami-text text-lg md:text-xl max-w-lg mt-12">Celebramos as emoções humanas com sensibilidade e otimismo, usando humor e carinho para dar voz à sua mensagem</p>
                 </section>
 
