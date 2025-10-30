@@ -10,7 +10,7 @@ export default function Footer() {
                 <Link
                     href={"https://linktr.ee/gabzzz_dias"}
                     target="_blank"
-                    className="underline font-bold hover:text-white/80"
+                    className="underline hover:text-white/80"
                 >
                     gabzzz
                 </Link>

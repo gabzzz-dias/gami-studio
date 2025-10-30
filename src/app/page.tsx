@@ -11,6 +11,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import Footer from "./components/Footer";
 
 const services = [
     { id: "1", title: "Ilustração editorial", description: "Criação de ilustrações para livros, revistas e outros materiais impressos." },
@@ -131,7 +132,7 @@ export default function Home() {
                     </Accordion>
                 </section>
 
-                <section className="container mx-auto px-4 py-10 text-center">
+                <section className="container mx-auto px-4 py-10 text-center mb-10">
                     <p className="text-lg max-w-xl mx-auto text-gami-text mb-6">
                         Amou? Manda um oi com a sua ideia e retornaremos com
                         os próximos passos ✨
@@ -143,6 +144,7 @@ export default function Home() {
                 </section>
 
             </main>
+            <Footer />
         </div>
     );
 }
